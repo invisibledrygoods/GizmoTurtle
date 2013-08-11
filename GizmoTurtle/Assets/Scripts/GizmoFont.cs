@@ -12,7 +12,30 @@ public abstract class GizmoFont
         this.size = size;
     }
 
-    public abstract GizmoTurtle Write(string str);
+    public abstract void Render(string str);
+
+    public GizmoTurtle Write(string str)
+    {
+        if (turtle.UpsideDown())
+        {
+            Color oldColor = Gizmos.color;
+            Color invisible = new Color(0, 0, 0, 0);
+            Gizmos.color = invisible;
+            Render(str);
+            turtle.Mirror();
+            Gizmos.color = oldColor;
+            Render(str);
+            turtle.Mirror();
+            Gizmos.color = invisible;
+            Render(str);
+            Gizmos.color = oldColor;
+        }
+        else
+        {
+            Render(str);
+        }
+        return turtle;
+    }
 
     public GizmoFont R45(int points)
     {

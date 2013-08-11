@@ -36,6 +36,16 @@ public class GizmoTurtle
         penOnPaper = false;
     }
 
+    public bool UpsideDown()
+    {
+        return Vector3.Dot(-this.right, Vector3.up) > 0;
+    }
+
+    public void Mirror()
+    {
+        forward = -forward;
+    }
+
     public GizmoTurtle PenDown()
     {
         penOnPaper = true;
