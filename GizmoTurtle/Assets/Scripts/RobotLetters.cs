@@ -7,13 +7,43 @@ public class RobotLetters : GizmoFont
     {
     }
 
-    public override GizmoTurtle Write(string str)
+    public override void Render(string str)
     {
         foreach (char letter in str.ToLower().ToCharArray())
         {
             switch (letter) {
                 case ' ':
                     Up().F(7);
+                    break;
+                case '0':
+                    Up().L(1).Down().F(4).R45(1).F(2).R45(1).F(4).R45(1).F(2).R45(1).R45(4).Up().R(5).L(2);
+                    break;
+                case '1':
+                    Up().F(1).Down().F(2).Up().Reverse(1).Down().R(6).Reverse(0).R45(1).Up().L(5).L(5);
+                    break;
+                case '2':
+                    Up().L(5).Down().R45(1).F(2).R45(1).F(1).R45(4).Reverse(4).Up().F(2);
+                    break;
+                case '3':
+                    Up().L(1).Reverse(0).Down().L45(1).F(2).L45(1).F(1).L45(2).Reverse(0).L45(2).L(4).Up().L(6).L(6);
+                    break;
+                case '4':
+                    Up().F(3).Down().L(6).Reverse(0).R45(3).L(1).L(4).Up().R(2).L(2);
+                    break;
+                case '5':
+                    Up().L(1).Reverse(0).Down().L45(1).F(2).L45(1).F(2).L45(1).F(3).R(2).R(4).Up().R(6).L(2);
+                    break;
+                case '6':
+                    Up().L(3).Down().R(3).R45(1).F(1).R45(1).F(2).R45(1).F(3).R45(2).F(1).Up().R(6).L(3);
+                    break;
+                case '7':
+                    Up().L(6).Down().R(4).R(1).R45(3).L(2).Up().L(5);
+                    break;
+                case '8':
+                    Up().L(3).R(1).Down().F(2).L45(1).F(1).L45(1).F(2).L45(1).F(1).L45(1).Up().F(2).Down().R45(1).F(1).R45(1).F(2).R45(1).F(1).R45(1).Up().R(3).L(5);
+                    break;
+                case '9':
+                    Up().F(1).Down().F(1).L45(2).F(3).L45(1).F(2).L45(1).F(1).L45(1).F(3).Up().R(3).L(2);
                     break;
                 case 'a':
                     Down().L(5).R45(1).F(2).R45(1).F(5).Up().R(4).R(2).Down().R(4).Up().R(2).L(2);
@@ -110,6 +140,5 @@ public class RobotLetters : GizmoFont
                     break;
             }
         }
-        return turtle;
     }
 }
