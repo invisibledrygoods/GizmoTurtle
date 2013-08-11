@@ -36,34 +36,39 @@ public class GizmoTurtle
         penOnPaper = false;
     }
 
-    public void PenDown()
+    public GizmoTurtle PenDown()
     {
         penOnPaper = true;
+        return this;
     }
 
-    public void PenUp()
+    public GizmoTurtle PenUp()
     {
         penOnPaper = false;
+        return this;
     }
 
-    public void Forward(float distance)
+    public GizmoTurtle Forward(float distance)
     {
         if (penOnPaper)
         {
             Gizmos.DrawLine(position, position + forward * distance);
         }
         position += forward * distance;
+        return this;
     }
 
-    public void RotateLeft(float angle)
+    public GizmoTurtle RotateLeft(float angle)
     {
         forward = Quaternion.AngleAxis(-angle, up) * forward;
         right = Quaternion.AngleAxis(-angle, up) * right;
+        return this;
     }
 
-    public void RotateRight(float angle)
+    public GizmoTurtle RotateRight(float angle)
     {
         forward = Quaternion.AngleAxis(angle, up) * forward;
         right = Quaternion.AngleAxis(angle, up) * right;
+        return this;
     }
 }

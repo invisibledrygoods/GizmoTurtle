@@ -5,25 +5,15 @@ public class Doodles : MonoBehaviour
 {
     void OnDrawGizmos()
     {
-        DrawADoodle(new GizmoTurtle(Vector3.zero));
-        DrawADoodle(new GizmoTurtle(new Ray(Vector3.zero, Vector3.right)));
-        DrawADoodle(new GizmoTurtle(new Ray(Vector3.zero, Vector3.right), Vector3.up));
+        DrawADoodle(new GizmoTurtle(Vector3.zero), 0.5f);
+        DrawADoodle(new GizmoTurtle(Vector3.up * 2.0f), 1f);
+        //DrawADoodle(new GizmoTurtle(new Ray(Vector3.zero, Vector3.right), Vector3.up));
 
     }
 
-    void DrawADoodle(GizmoTurtle turtle)
+    void DrawADoodle(GizmoTurtle turtle, float size)
     {
-        turtle.PenDown();
-        turtle.Forward(1);
-        turtle.RotateLeft(90);
-        turtle.Forward(1);
-        turtle.PenUp();
-        turtle.Forward(1);
-        turtle.PenDown();
-        turtle.Forward(1);
-        turtle.RotateRight(90);
-        turtle.Forward(1);
-
+        new RobotLetters(turtle, size).Write("0123456789 !?.:");
         Gizmos.color = Color.white;
     }
 }
