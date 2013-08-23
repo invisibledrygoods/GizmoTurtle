@@ -9,6 +9,14 @@ public class GizmoTurtle
     Vector3 position;
     bool penOnPaper;
 
+    public Vector3 Position
+    {
+        get
+        {
+            return position;
+        }
+    }
+
     public GizmoTurtle(Vector3 position)
     {
         this.position = position;
