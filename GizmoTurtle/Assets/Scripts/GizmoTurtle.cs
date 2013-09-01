@@ -46,6 +46,10 @@ public class GizmoTurtle
 
     public bool UpsideDown()
     {
+        if (forward == Camera.current.transform.right)
+        {
+            return false;
+        }
         return Vector3.Dot(-this.right, Vector3.up) > 0;
     }
 
