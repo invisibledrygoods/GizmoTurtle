@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System;
 
 public class GizmoTurtle
 {
@@ -92,5 +93,15 @@ public class GizmoTurtle
         forward = Quaternion.AngleAxis(angle, up) * forward;
         right = Quaternion.AngleAxis(angle, up) * right;
         return this;
+    }
+
+    public static void WithGizmoColor(Color color, Action action)
+    {
+        Color oldColor = Gizmos.color;
+        Gizmos.color = color;
+
+        action.Invoke();
+
+        Gizmos.color = oldColor;
     }
 }

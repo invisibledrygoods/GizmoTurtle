@@ -18,17 +18,19 @@ public abstract class GizmoFont
     {
         if (turtle.UpsideDown())
         {
-            Color oldColor = Gizmos.color;
-            Color invisible = new Color(0, 0, 0, 0);
-            Gizmos.color = invisible;
+            GizmoTurtle.WithGizmoColor(new Color(0, 0, 0, 0), () =>
+            {
+                Render(str);
+            });
+
+            turtle.Mirror();
             Render(str);
             turtle.Mirror();
-            Gizmos.color = oldColor;
-            Render(str);
-            turtle.Mirror();
-            Gizmos.color = invisible;
-            Render(str);
-            Gizmos.color = oldColor;
+
+            GizmoTurtle.WithGizmoColor(new Color(0, 0, 0, 0), () =>
+            {
+                Render(str);
+            });
         }
         else
         {
